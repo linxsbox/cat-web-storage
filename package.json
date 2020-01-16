@@ -1,0 +1,55 @@
+{
+  "name": "cat-web-storage",
+  "author": "Lin.xs",
+  "version": "0.1.0",
+  "license": "ISC",
+  "description": "web storage",
+  "keywords": [
+    "web",
+    "storage"
+  ],
+  "scripts": {
+    "build": "node build/index.js",
+    "tbuild": "node tbuild/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "dist/web-storage.common.js",
+  "module": "dist/web-storage.esm.js",
+  "unpkg": "web-storage.js",
+  "jsdelivr": "web-storage.js",
+  "typings": "types/index.d.ts",
+  "files": [
+    "src/*.js",
+    "dist/*.js",
+    "types/*.d.ts"
+  ],
+  "homepage": "https://github.com/linxsbox/web-storage#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linxsbox/web-storage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/linxsbox/web-storage/issues"
+  },
+  "devDependencies": {
+    "lint-staged": "^9.5.0",
+    "rollup": "^1.29.0",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-flow-no-whitespace": "^1.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-typescript2": "^0.25.3",
+    "terser": "^4.6.3",
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.4"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "git add"
+    ]
+  }
+}
