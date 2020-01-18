@@ -4,7 +4,8 @@ import {
   CookieStorage,
 } from './storage';
 
-export let _VUE: any;
+// export 
+let _VUE: any;
 
 const install = (Vue: any, opts = {}) => {
   if (install.installed && _VUE === Vue) { return; }
@@ -35,4 +36,8 @@ export default class WebStorage {
 
 WebStorage.install = install;
 
-export { install };
+const inBrowser = typeof window !== 'undefined';
+
+if (inBrowser && (window as any).Vue) {
+  (window as any).Vue.use(WebStorage);
+}
