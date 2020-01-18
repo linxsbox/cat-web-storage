@@ -59,7 +59,7 @@ function validateParams (key?: string, value?: any): boolean {
 }
 
 // localStorage 实现类
-export class WebLocals implements WebStorage {
+export class LocalStorage implements WebStorage {
   local: Storage;
   opts: Options;
 
@@ -117,7 +117,7 @@ export class WebLocals implements WebStorage {
 }
 
 // sessionStorage 实现类
-export class WebSessions implements WebStorage {
+export class SessionStorage implements WebStorage {
   session: Storage;
   opts: Options;
 
@@ -175,7 +175,7 @@ export class WebSessions implements WebStorage {
 }
 
 // document.cookie 实现类
-export class WebCookies implements WebStorage {
+export class CookieStorage implements WebStorage {
   opts: CookieOptions;
 
   constructor () {

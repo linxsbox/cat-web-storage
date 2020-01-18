@@ -32,17 +32,18 @@
     "url": "https://github.com/linxsbox/web-storage/issues"
   },
   "devDependencies": {
+    "@rollup/plugin-buble": "^0.21.0",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-replace": "^2.3.0",
     "lint-staged": "^9.5.0",
     "rollup": "^1.29.0",
-    "rollup-plugin-buble": "^0.19.8",
-    "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-flow-no-whitespace": "^1.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-typescript2": "^0.25.3",
     "terser": "^4.6.3",
     "tslint": "^5.20.1",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "vue": "^2.6.11"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

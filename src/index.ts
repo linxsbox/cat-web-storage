@@ -1,23 +1,38 @@
 import {
-  WebLocals,
-  WebSessions,
-  WebCookies,
+  LocalStorage,
+  SessionStorage,
+  CookieStorage,
 } from './storage';
 
-const install = (Vue: any, opts = {}) => {
-  const webLocals = new WebLocals();
-  const webSessions = new WebSessions();
-  const webCookies = new WebCookies();
+export let _VUE: any;
 
-  Object.defineProperty(Vue.prototype, '$webLocals', {
-    get () { return webLocals; },
+const install = (Vue: any, opts = {}) => {
+  if (install.installed && _VUE === Vue) { return; }
+  install.installed = true;
+
+  _VUE = Vue;
+
+  const localStorage = new LocalStorage();
+  const sessionStorage = new SessionStorage();
+  const cookieStorage = new CookieStorage();
+
+  Object.defineProperty(Vue.prototype, '$localStorage', {
+    get () { return localStorage; },
   });
-  Object.defineProperty(Vue.prototype, '$webSessions', {
-    get () { return webSessions; },
+  Object.defineProperty(Vue.prototype, '$sessionStorage', {
+    get () { return sessionStorage; },
   });
-  Object.defineProperty(Vue.prototype, '$webCookies', {
-    get () { return webCookies; },
+  Object.defineProperty(Vue.prototype, '$cookieStorage', {
+    get () { return cookieStorage; },
   });
 };
 
-export default { install };
+install.installed = false;
+
+export default class WebStorage {
+  static install: (Vue: any, opts: object) => void;
+}
+
+WebStorage.install = install;
+
+export { install };
