@@ -30,6 +30,7 @@ function value2Stringify (value: any) {
 
 // 解析存储的值
 function ParseValue (value: any) {
+  if (!value) { return; }
   const tempLen = value.length;
   const tempLenEnd = tempLen - 1;
   const strMatch = (val = '', strArr: string[]) => {

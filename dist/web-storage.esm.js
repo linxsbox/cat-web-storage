@@ -1,5 +1,5 @@
 /*!
- * web-storage v0.1.0
+ * web-storage v0.1.10
  * Author: Lin.xs | Email: yunfax@outlook.com
  * (c) 2020 Lin.xs
  * @license ISC
@@ -13,6 +13,9 @@ function value2Stringify(value) {
 }
 // 解析存储的值
 function ParseValue(value) {
+    if (!value) {
+        return;
+    }
     var tempLen = value.length;
     var tempLenEnd = tempLen - 1;
     var strMatch = function (val, strArr) {
@@ -298,7 +301,6 @@ CookieStorage.prototype.clear = function clear () {
 // export 
 var _VUE;
 var install = function (Vue, opts) {
-
     if (install.installed && _VUE === Vue) {
         return;
     }
@@ -318,7 +320,13 @@ var install = function (Vue, opts) {
     });
 };
 install.installed = false;
-var WebStorage = function WebStorage () {};
+var WebStorage = function WebStorage() {
+    this.options = {};
+    this.app = null;
+    this.apps = [];
+    this.ready = false;
+    this.options = {};
+};
 WebStorage.install = install;
 var inBrowser = typeof window !== 'undefined';
 if (inBrowser && window.Vue) {

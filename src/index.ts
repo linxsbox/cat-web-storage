@@ -7,7 +7,7 @@ import {
 // export 
 let _VUE: any;
 
-const install = (Vue: any, opts = {}) => {
+const install = (Vue: any, opts: object) => {
   if (install.installed && _VUE === Vue) { return; }
   install.installed = true;
 
@@ -32,6 +32,18 @@ install.installed = false;
 
 export default class WebStorage {
   static install: (Vue: any, opts: object) => void;
+
+  app: any;
+  apps: any[];
+  ready: boolean;
+  options: object = {};
+
+  constructor () { 
+    this.app = null;
+    this.apps = [];
+    this.ready = false;
+    this.options = {};
+   }
 }
 
 WebStorage.install = install;

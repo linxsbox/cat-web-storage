@@ -1,5 +1,14 @@
 import Vue from 'vue';
-import WebStorage, {
+import { WebStorage } from './web-storage'
+import {
+  LocalStorage,
+  SessionStorage,
+  CookieStorage
+} from './web-storage'
+
+export default WebStorage
+
+export {
   LocalStorage,
   SessionStorage,
   CookieStorage
@@ -12,12 +21,3 @@ declare module 'vue/types/vue' {
     $cookieStorage: CookieStorage
   }
 }
-
-export default WebStorage
-
-export {
-  LocalStorage,
-  SessionStorage,
-  CookieStorage
-} from './web-storage'
-
