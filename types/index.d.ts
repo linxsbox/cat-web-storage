@@ -1,4 +1,3 @@
-import Vue from 'vue';
 import { WebStorage } from './web-storage'
 import {
   LocalStorage,

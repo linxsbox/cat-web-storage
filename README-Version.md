@@ -9,11 +9,11 @@
 - 修复调用加密方式的赋值逻辑，但加密函数未实现
 
 **function list** <span style="padding:1px 6px;color:#fff;font-size:14px;background-color:#ccc;border-radius:4px;">Unchanged</span>
-- [set](/linxsbox/cat-web-storage/blob/dev/README.md#-set-key-string-object--string)
-- [get](/linxsbox/cat-web-storage/blob/dev/README.md#-get-key-string-object--string)
-- [remove](/linxsbox/cat-web-storage/blob/dev/README.md#-remove-key-string-object--string)
-- [key](/linxsbox/cat-web-storage/blob/dev/README.md#-key-key-string-object--string)
-- [clear](/linxsbox/cat-web-storage/blob/dev/README.md#-clear-key-string-object--string)
+- [set](README.md#-set-key-string-object--string)
+- [get](README.md#-get-key-string-object--string)
+- [remove](README.md#-remove-key-string-object--string)
+- [key](README.md#-key-key-string-object--string)
+- [clear](README.md#-clear-key-string-object--string)
 ---
 
 ## ver 0.1.11
@@ -23,9 +23,9 @@
 - 引入式 **Vue** 实现自动注册 use
 
 **function list** <span style="padding:1px 6px;color:#fff;font-size:14px;background-color:#28a745;border-radius:4px;">basic</span>
-- [set](/linxsbox/cat-web-storage/blob/dev/README.md#-set-key-string-object--string)
-- [get](/linxsbox/cat-web-storage/blob/dev/README.md#-get-key-string-object--string)
-- [remove](/linxsbox/cat-web-storage/blob/dev/README.md#-remove-key-string-object--string)
-- [key](/linxsbox/cat-web-storage/blob/dev/README.md#-key-key-string-object--string)
-- [clear](/linxsbox/cat-web-storage/blob/dev/README.md#-clear-key-string-object--string)
+- [set](README.md#-set-key-string-object--string)
+- [get](README.md#-get-key-string-object--string)
+- [remove](README.md#-remove-key-string-object--string)
+- [key](README.md#-key-key-string-object--string)
+- [clear](README.md#-clear-key-string-object--string)
 ---
