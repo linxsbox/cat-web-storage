@@ -1,5 +1,8 @@
 # web-storage
-web storage
+**cat-web-storage** 是一个轻量级的 Web 存储工具库，它对 web storage API 进行了封装，简化了所需额外编码处理存储数据的操作。
+未来将会支持加密存储和可接受自定义加密函数，以及对 IndexedDB 的支持。
+
+[版本说明](/linxsbox/cat-web-storage/blob/dev/README-Version.md)
 
 ## install
 
@@ -13,16 +16,18 @@ import webstorage from 'cat-web-storage';
 Vue.use(webstorage);
 ```
 
+---
+
 ## Usage
 **interface**
 - WebStorage
 
 **function**
-- [set](#set)
-- [get](#get)
-- [remove](#remove)
-- [key](#key)
-- [clear](#clear)
+- [set](#-set-key-string-object--string)
+- [get](#-get-key-string-object--string)
+- [remove](#-remove-key-string-object--string)
+- [key](#-key-key-string-object--string)
+- [clear](#-clear-key-string-object--string)
 
 ```ts
 // 实现 WebStorage
@@ -40,21 +45,24 @@ declare module {
 } 
 ```
 
+---
+
 ## See also
-目前需要在 **Vue** 实例下使用。
 
 ### <a id="#set"></a> set (key: string, value: any, opts?: Options): void
 
 ```javascript
-created () {
-  this.$localStorage.set('number', 10086);
+// Vue
+this.$localStorage.set('number', 10086);
 
-  this.$localStorage.set('string', '从前有座山……');
+this.$localStorage.set('string', '从前有座山……');
 
-  this.$localStorage.set('object', {'移动客服': 10086});
+this.$localStorage.set('object', {'移动客服': 10086});
 
-  this.$localStorage.set('array', [10086, 10000, 10001, '小灵通？']);
-}
+this.$localStorage.set('array', [10086, 10000, 10001, '小灵通？']);
+
+// window
+window.$localStorage.set('array', [10086, 10000, 10001, '小灵通？']);
 ```
 
 ### <a id="#get"></a> get (key: string): object | string
@@ -62,15 +70,17 @@ created () {
 获取 web storage 时会尝试将存储时的数据类型还原，如果还原失败会返回**字符串**或 **undefined**。
 
 ```javascript
-created () {
-  this.$localStorage.get('number');
+// Vue
+this.$localStorage.get('number');
 
-  this.$localStorage.get('string');
+this.$localStorage.get('string');
 
-  this.$localStorage.get('object');
+this.$localStorage.get('object');
 
-  this.$localStorage.get('array');
-}
+this.$localStorage.get('array');
+
+// window
+window.$localStorage.get('array');
 ```
 
 ### <a id="#remove"></a> remove (key: string): object | string
@@ -78,9 +88,11 @@ created () {
 将指定 **key** 的存储项从列表中移除。
 
 ```javascript
-created () {
-  this.$localStorage.remove('array');
-}
+// Vue
+this.$localStorage.remove('array');
+
+// window
+window.$localStorage.remove('array');
 ```
 
 ### <a id="#key"></a> key (index: number): string
@@ -88,19 +100,23 @@ created () {
 通过下标的方式获取存储列表中的项。但是，存储列表的顺序并非以存储时的顺序作为排序，所以使用此函数时可能不会返回期望的数据。
 
 ```javascript
-created () {
-  this.$localStorage.key(1);
+// Vue
+this.$localStorage.key(1);
 
-  this.$localStorage.key(4);
-}
+this.$localStorage.key(4);
+
+// window
+window.$localStorage.key(1);
 ```
 
 ### <a id="#clear"></a> clear (): void
 
-将存储列表全部清除。
+此函数会将存储列表全部清除。请谨慎使用。
 
 ```javascript
-created () {
-  this.$localStorage.clear();
-}
+// Vue
+this.$localStorage.clear();
+
+// window
+window.$localStorage.clear();
 ```

@@ -52,4 +52,14 @@ const inBrowser = typeof window !== 'undefined';
 
 if (inBrowser && (window as any).Vue) {
   (window as any).Vue.use(WebStorage);
+} else if (inBrowser && Object.defineProperty) {
+  Object.defineProperty(window, '$localStorage', {
+    get () { return new LocalStorage(); },
+  });
+  Object.defineProperty(window, '$sessionStorage', {
+    get () { return new SessionStorage(); },
+  });
+  Object.defineProperty(window, '$cookieStorage', {
+    get () { return new CookieStorage(); },
+  });
 }

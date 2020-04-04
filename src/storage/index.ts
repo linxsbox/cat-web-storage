@@ -78,6 +78,7 @@ export class LocalStorage implements WebStorage {
     if (!validateParams(key, value)) { return; }
     if (opts.encrypt) {
       // 
+      this.local.setItem(key, value2Stringify(value));
     } else {
       this.local.setItem(key, value2Stringify(value));
     }
@@ -136,6 +137,7 @@ export class SessionStorage implements WebStorage {
     if (!validateParams(key, value)) { return; }
     if (opts.encrypt) {
       // 
+      this.session.setItem(key, value2Stringify(value));
     } else {
       this.session.setItem(key, value2Stringify(value));
     }
@@ -221,6 +223,7 @@ export class CookieStorage implements WebStorage {
     let tempCookie = '';
     if (opts.encrypt) {
       // 
+      tempCookie += `${key}=${value}`;
     } else {
       tempCookie += `${key}=${value}`;
     }

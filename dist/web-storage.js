@@ -1,5 +1,5 @@
 /*!
- * web-storage v0.1.10
+ * web-storage v0.2.0
  * Author: Lin.xs | Email: yunfax@outlook.com
  * (c) 2020 Lin.xs
  * @license ISC
@@ -67,7 +67,10 @@
      if (!validateParams(key, value)) {
          return;
      }
-     if (opts.encrypt) ;
+     if (opts.encrypt) {
+         // 
+         this.local.setItem(key, value2Stringify(value));
+     }
      else {
          this.local.setItem(key, value2Stringify(value));
      }
@@ -130,7 +133,10 @@
      if (!validateParams(key, value)) {
          return;
      }
-     if (opts.encrypt) ;
+     if (opts.encrypt) {
+         // 
+         this.session.setItem(key, value2Stringify(value));
+     }
      else {
          this.session.setItem(key, value2Stringify(value));
      }
@@ -222,7 +228,10 @@
          return;
      }
      var tempCookie = '';
-     if (opts.encrypt) ;
+     if (opts.encrypt) {
+         // 
+         tempCookie += key + "=" + value;
+     }
      else {
          tempCookie += key + "=" + value;
      }
@@ -337,6 +346,17 @@
  var inBrowser = typeof window !== 'undefined';
  if (inBrowser && window.Vue) {
      window.Vue.use(WebStorage);
+ }
+ else if (inBrowser && Object.defineProperty) {
+     Object.defineProperty(window, '$localStorage', {
+         get: function get() { return new LocalStorage(); },
+     });
+     Object.defineProperty(window, '$sessionStorage', {
+         get: function get() { return new SessionStorage(); },
+     });
+     Object.defineProperty(window, '$cookieStorage', {
+         get: function get() { return new CookieStorage(); },
+     });
  }
 
  return WebStorage;
