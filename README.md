@@ -23,11 +23,12 @@ Vue.use(webstorage);
 - WebStorage
 
 **function**
-- [set](#-set-key-string-object--string)
-- [get](#-get-key-string-object--string)
-- [remove](#-remove-key-string-object--string)
-- [key](#-key-key-string-object--string)
-- [clear](#-clear-key-string-object--string)
+- [set](#set)
+- [get](#get)
+- [remove](#remove)
+- [key](#key)
+- [clear](#clear)
+
 
 ```ts
 // 实现 WebStorage
@@ -49,7 +50,7 @@ declare module {
 
 ## See also
 
-### <a id="#set"></a> set (key: string, value: any, opts?: Options): void
+### <a id="set"></a> set (key: string, value: any, opts?: Options): void
 
 ```javascript
 // Vue
@@ -65,7 +66,7 @@ this.$localStorage.set('array', [10086, 10000, 10001, '小灵通？']);
 window.$localStorage.set('array', [10086, 10000, 10001, '小灵通？']);
 ```
 
-### <a id="#get"></a> get (key: string): object | string
+### <a id="get"></a> get (key: string): object | string
 
 获取 web storage 时会尝试将存储时的数据类型还原，如果还原失败会返回**字符串**或 **undefined**。
 
@@ -83,7 +84,7 @@ this.$localStorage.get('array');
 window.$localStorage.get('array');
 ```
 
-### <a id="#remove"></a> remove (key: string): object | string
+### <a id="remove"></a> remove (key: string): object | string
 
 将指定 **key** 的存储项从列表中移除。
 
@@ -95,7 +96,7 @@ this.$localStorage.remove('array');
 window.$localStorage.remove('array');
 ```
 
-### <a id="#key"></a> key (index: number): string
+### <a id="key"></a> key (index: number): string
 
 通过下标的方式获取存储列表中的项。但是，存储列表的顺序并非以存储时的顺序作为排序，所以使用此函数时可能不会返回期望的数据。
 
@@ -109,7 +110,7 @@ this.$localStorage.key(4);
 window.$localStorage.key(1);
 ```
 
-### <a id="#clear"></a> clear (): void
+### <a id="clear"></a> clear (): void
 
 此函数会将存储列表全部清除。请谨慎使用。
 
