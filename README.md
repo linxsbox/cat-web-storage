@@ -1,8 +1,8 @@
-# web-storage
+# cat-web-storage
 **cat-web-storage** 是一个轻量级的 Web 存储工具库，它对 web storage API 进行了封装，简化了所需额外编码处理存储数据的操作。
 未来将会支持加密存储和可接受自定义加密函数，以及对 IndexedDB 的支持。
 
-[版本说明](README-Version.md)
+[版本说明](README-Version.md) | [下载 js 版本](https://github.com/linxsbox/cat-web-storage/releases)
 
 ## install
 

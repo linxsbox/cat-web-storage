@@ -5,11 +5,14 @@ const rplc = require('@rollup/plugin-replace'); // 编译过程中动态替换�
 const nresolve = require('@rollup/plugin-node-resolve'); // 编译过程中帮助 rollup 查找外部的模块并支持合并
 const flow = require('rollup-plugin-flow-no-whitespace'); // 编译过程中 将 flow 静态类型检查进行忽略
 const rts = require('rollup-plugin-typescript2'); // 将 TypeScript 转换成为 ES6+ 标准
-const version = require('../package.json').version; // 版本号
-const license = require('../package.json').license; // 开源协议
+const packageInfo = require('../package.json');
+const projectName = packageInfo.name; // 项目名
+const version = packageInfo.version; // 版本号
+const license = packageInfo.license; // 开源协议
+
 const banner = // 版本信息 & 作者 & 开源协议
 `/*!
- * web-storage v${version}
+ * ${projectName} v${version}
  * Author: Lin.xs | Email: yunfax@outlook.com
  * (c) ${new Date().getFullYear()} Lin.xs
  * @license ${license}
@@ -19,32 +22,32 @@ const resolve = _path => path.resolve(__dirname, '../', _path);
 
 const configs = [
   { // dev
-    file: resolve('dist/web-storage.js'),
+    file: resolve(`dist/${projectName}.js`),
     format: 'umd',
     env: 'development'
   },
   { // prd
-    file: resolve('dist/web-storage.min.js'),
+    file: resolve(`dist/${projectName}.min.js`),
     format: 'umd',
     env: 'production'
   },
   { // commonjs dev
-    file: resolve('dist/web-storage.common.js'),
+    file: resolve(`dist/${projectName}.common.js`),
     format: 'cjs',
     env: 'development'
   },
   { // commonjs prd
-    file: resolve('dist/web-storage.common.min.js'),
+    file: resolve(`dist/${projectName}.common.min.js`),
     format: 'cjs',
     env: 'production'
   },
   { // es dev
-    file: resolve('dist/web-storage.esm.js'),
+    file: resolve(`dist/${projectName}.esm.js`),
     format: 'es',
     env: 'development'
   },
   { // es prd
-    file: resolve('dist/web-storage.esm.min.js'),
+    file: resolve(`dist/${projectName}.esm.min.js`),
     format: 'es',
     env: 'production'
   },

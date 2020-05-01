@@ -1,11 +1,9 @@
 /*!
- * web-storage v0.2.0
+ * cat-web-storage v0.2.0
  * Author: Lin.xs | Email: yunfax@outlook.com
  * (c) 2020 Lin.xs
  * @license ISC
  */
-'use strict';
-
 // 存储值转换成字符串
 function value2Stringify(value) {
     return typeof value === 'string'
@@ -355,4 +353,4 @@ else if (inBrowser && Object.defineProperty) {
     });
 }
 
-module.exports = WebStorage;
+export default WebStorage;

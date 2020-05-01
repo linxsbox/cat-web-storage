@@ -1,4 +1,4 @@
-# web-storage 版本说明
+# cat-web-storage 版本说明
 
 现有版本说明
 ## ver 0.2.0

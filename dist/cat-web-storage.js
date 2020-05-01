@@ -1,5 +1,5 @@
 /*!
- * web-storage v0.2.0
+ * cat-web-storage v0.2.0
  * Author: Lin.xs | Email: yunfax@outlook.com
  * (c) 2020 Lin.xs
  * @license ISC
