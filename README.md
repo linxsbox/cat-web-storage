@@ -4,6 +4,8 @@
 
 [版本说明](README-Version.md) | [下载 js 版本](https://github.com/linxsbox/cat-web-storage/releases)
 
+引入后使用出现红色警告波浪线或者未能通过 “.” 的方式来获取代码提示 [请看这里](#fix)
+
 ## install
 
 ```bash
@@ -120,4 +122,26 @@ this.$localStorage.clear();
 
 // window
 window.$localStorage.clear();
+```
+
+---
+
+## <a id="fix"></a>修复警告/无法通过“.”提示代码
+
+在模块描述文件内添加如下内容，例如：**shims.d.ts** 文件。
+```typescript
+import Vue from 'vue';
+import {
+  LocalStorage,
+  SessionStorage,
+  CookieStorage
+} from 'cat-web-storage';
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $localStorage: LocalStorage
+    $sessionStorage: SessionStorage
+    $cookieStorage: CookieStorage
+  }
+}
 ```
