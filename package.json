@@ -1,8 +1,8 @@
 {
   "name": "cat-web-storage",
   "author": "Lin.xs",
-  "version": "0.2.0",
-  "license": "ISC",
+  "version": "0.2.1",
+  "license": "MIT",
   "description": "web storage",
   "keywords": [
     "web",
@@ -13,8 +13,8 @@
     "tbuild": "node tbuild/build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "dist/cat-web-storage.esm.js",
-  "module": "dist/cat-web-storage.common.js",
+  "main": "dist/cat-web-storage.common.js",
+  "module": "dist/cat-web-storage.esm.js",
   "unpkg": "cat-web-storage.js",
   "jsdelivr": "cat-web-storage.js",
   "typings": "types/index.d.ts",
@@ -44,6 +44,9 @@
     "tslint": "^6.1.0",
     "typescript": "^3.8.3",
     "vue": "^2.6.11"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

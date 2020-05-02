@@ -1,8 +1,8 @@
-/*!
- * cat-web-storage v0.2.0
+/**!
+ * cat-web-storage v0.2.1
  * Author: Lin.xs | Email: yunfax@outlook.com
  * (c) 2020 Lin.xs
- * @license ISC
+ * @license MIT
  */
 // 存储值转换成字符串
 function value2Stringify(value) {
