@@ -2,30 +2,31 @@
   "compilerOptions": {
     "target": "ES2015",
     "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "importHelpers": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": false,
-    "baseUrl": ".",
-    "outDir": "./dist/",
     "lib": [
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost"
-    ]
+    ],
+    "declaration": true,
+    "declarationDir": "./typings",
+    "strict": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "stripInternal": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "baseUrl": ".",
+    "outDir": "./dist/",
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
+    "src"
   ],
   "exclude": [
-    "node_modules"
+    "typings"
   ]
 }

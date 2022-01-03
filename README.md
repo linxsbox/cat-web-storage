@@ -104,9 +104,9 @@ window.$localStorage.remove('array');
 
 ```javascript
 // Vue
-this.$localStorage.key(1);
+this.$localStorage.key(1); // 返回存储列表中下标为 1 的存储数据
 
-this.$localStorage.key(4);
+this.$localStorage.key(4); // 返回存储列表中下标为 4 的存储数据
 
 // window
 window.$localStorage.key(1);

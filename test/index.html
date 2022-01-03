@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="../dist/cat-web-storage.js"></script>
+  <script lang="ts">
+    const READ_ONLY = "readonly"
+    const READ_WRITE = "readwrite"
+    const VERSION_CHANGE = "versionchange"
+
+    const idb = (dbName, version) => new Promise((resolve, reject) => {
+      const VERSION = 'version'
+      const openRequest = window.indexedDB.open('DBVersion', 1)
+      openRequest.onerror = function (event) {
+        console.log('Do something with request.errorCode!')
+        console.log(event);
+        reject()
+      };
+      openRequest.onsuccess = function (event) {
+        console.log('Do something with request.result!')
+        console.log(event);
+
+        const vdb = openRequest.result
+        const vdbStore = vdb.transaction([VERSION], READ_ONLY).objectStore(VERSION)
+        const vdbRequest = vdbStore.get(dbName);
+        // 找不到说明应该是新建的数据库
+        request.onerror = function () {
+          resolve(0);
+        };
+        request.onsuccess = function () {
+          if (request.result.version) {
+            resolve(request.result.version);
+          } else {
+            resolve(0);
+          }
+        };
+        resolve()
+      };
+
+      openRequest.onupgradeneeded = () => {
+        const db = openRequest.result;
+        const objectStore = db.createObjectStore('version', {
+          keyPath: 'catwsdb',
+        });
+        objectStore.createIndex('dbName', 'dbName', {
+          unique: true
+        });
+        objectStore.createIndex('version', 'version', {
+          unique: false
+        });
+        console.log(1);
+      };
+
+    });
+
+    idb()
+  </script>
+</body>
+
+</html>
